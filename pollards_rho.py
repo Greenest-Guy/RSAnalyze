@@ -28,7 +28,4 @@ class PollardsRho:
 
             d = math.gcd(abs(x - y), self.num)
 
-            if d == self.num:
-                return None
-
         return d
