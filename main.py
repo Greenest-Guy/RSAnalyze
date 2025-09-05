@@ -1,4 +1,7 @@
+from pollards_rho import PollardsRho
+from logic import logic
 import customtkinter
+
 
 class main(customtkinter.CTk):
     def __init__(self):
