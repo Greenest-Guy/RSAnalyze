@@ -1,4 +1,4 @@
-from pollards_rho import PollardsRho
+from RSAnalysis.pollards_rho.pollards_rho import PollardsRho
 from logic import logic
 import customtkinter
 

@@ -4,6 +4,7 @@
 import random
 import math
 
+
 class PollardsRho:
     def __init__(self, num):
         self.num = num
@@ -11,7 +12,7 @@ class PollardsRho:
     def factorize(self):
         if self.num == 1:
             return 1
-        
+
         elif self.num % 2 == 0:
             return 2
 
