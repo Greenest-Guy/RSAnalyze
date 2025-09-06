@@ -1,5 +1,5 @@
 # Pollard's Rho Algorithm for Integer Factorization
-# Expected Time Complexity: O(sqrt(p))
+# Expected Time Complexity: O(p^1/4)
 
 import random
 import math
@@ -10,10 +10,11 @@ class PollardsRho:
         self.num = num
 
     def factorize(self):
+        if self.num <= 0:
+            raise ValueError("Number must be a positive integer")
         if self.num == 1:
             return 1
-
-        elif self.num % 2 == 0:
+        if self.num % 2 == 0:
             return 2
 
         x = random.randint(2, self.num - 1)
