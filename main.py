@@ -51,7 +51,17 @@ class main(CTk):
 
         Factorize_button.place(x=25, y=350)
 
-        # TEXTBOX
+        # TEXTBOX RSA Values
+        self.rsa_values = CTkTextbox(
+            self, width=400, height=125, font=("Inter", 16), bg_color=self.light_grey, corner_radius=0, fg_color=self.light_grey)
+        self.rsa_values.place(x=220, y=78)
+        self.rsa_values.configure(state="disabled")
+
+        # TEXTBOX Factorization (Pollard's Rho)
+        self.Factorization = CTkTextbox(
+            self, width=400, height=125, font=("Inter", 16), bg_color=self.light_grey, corner_radius=0, fg_color=self.light_grey)
+        self.Factorization.place(x=220, y=245)
+        self.Factorization.configure(state="disabled")
 
 
 if __name__ == "__main__":
