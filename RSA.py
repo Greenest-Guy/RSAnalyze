@@ -2,7 +2,7 @@ from sympy import isprime
 import math
 
 
-class Logic:
+class RSA:
     def __init__(self, p, q):
         if not (isprime(p) and isprime(q)):
             raise ValueError("p and q must be prime")
@@ -53,3 +53,6 @@ class Logic:
 
     def get_private_key(self):
         return (self.n, self.d)
+
+    def get_values(self):
+        return self.n, self.e, self.d
