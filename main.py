@@ -120,11 +120,21 @@ class main(CTk):
 
             n, e, d = rsa.get_values()
 
-            print(f"n: {n}, e: {e}, d: {d}")
-
         except ValueError:
             self.showErrorWindow(
                 "Please enter valid prime integers for p and q.")
+            return
+
+        self.rsa_values.configure(state="normal")
+
+        self.rsa_values.delete("0.0", "end")
+        self.rsa_values.insert("end", f"n - {n}\n")
+        self.rsa_values.insert("end", f"e - {e}\n")
+        self.rsa_values.insert("end", f"d - {d}\n")
+        self.rsa_values.insert("end", f"Public Key - {rsa.get_public_key()}\n")
+        self.rsa_values.insert("end", f"Private Key - {rsa.get_private_key()}")
+
+        self.rsa_values.configure(state="disabled")
 
 
 if __name__ == "__main__":
