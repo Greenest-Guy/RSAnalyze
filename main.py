@@ -50,13 +50,21 @@ class main(CTk):
 
         auto_primes_button.place(x=25, y=175)
 
-        # BUTTON Factorize
+        # BUTTON Generate
         Factorize_button = CTkButton(self, width=150, height=30, bg_color=self.light_grey, text="Generate",
                                      fg_color=self.purple, hover_color=self.dark_purple, text_color=self.white, font=(
                                          "Inter", 16),
                                      command=self.calculate_rsa_values)
 
         Factorize_button.place(x=25, y=350)
+
+        # BUTTON Factorize
+        Factorize_button = CTkButton(self, width=150, height=30, bg_color=self.light_grey, text="Factorize",
+                                     fg_color=self.purple, hover_color=self.dark_purple, text_color=self.white, font=(
+                                         "Inter", 16),
+                                     command=self.factorize)
+
+        Factorize_button.place(x=636, y=350)
 
         # TEXTBOX RSA Values
         self.rsa_values = CTkTextbox(
@@ -69,6 +77,8 @@ class main(CTk):
             self, width=400, height=125, font=("Inter", 16), bg_color=self.light_grey, corner_radius=0, fg_color=self.light_grey)
         self.Factorization.place(x=220, y=245)
         self.Factorization.configure(state="disabled")
+
+        # SWITCH Fermats Number
 
     def showErrorWindow(self, message: str, log=None):
         if hasattr(self, "error_box"):
@@ -108,6 +118,10 @@ class main(CTk):
         p = self.p_entry.get()
         q = self.q_entry.get()
 
+        if p == q:
+            self.showErrorWindow("p and q cannot be the same value")
+            return
+
         try:
             p = int(p)
             q = int(q)
@@ -118,7 +132,7 @@ class main(CTk):
 
             rsa = RSA(p, q)
 
-            n, e, d = rsa.get_values()
+            n, phi_n, e, d = rsa.get_values()
 
         except ValueError:
             self.showErrorWindow(
@@ -129,12 +143,17 @@ class main(CTk):
 
         self.rsa_values.delete("0.0", "end")
         self.rsa_values.insert("end", f"n - {n}\n")
+        self.rsa_values.insert("end", f"φ(n) - {phi_n}\n")
         self.rsa_values.insert("end", f"e - {e}\n")
-        self.rsa_values.insert("end", f"d - {d}\n")
+        self.rsa_values.insert("end", f"d - {d}\n\n")
+
         self.rsa_values.insert("end", f"Public Key - {rsa.get_public_key()}\n")
         self.rsa_values.insert("end", f"Private Key - {rsa.get_private_key()}")
 
         self.rsa_values.configure(state="disabled")
+
+    def factorize(self):
+        pass
 
 
 if __name__ == "__main__":

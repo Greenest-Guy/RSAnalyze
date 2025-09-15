@@ -1,4 +1,4 @@
-from sympy import isprime
+from sympy import isprime, nextprime
 import math
 
 
@@ -16,12 +16,11 @@ class RSA:
         self.phi_n = (p - 1) * (q - 1)
 
         # Calculate e
-        self.e = FERMAT if (self.phi_n > FERMAT and self.iscoprime(
-            self.phi_n, FERMAT)) else 3
+        if FERMAT < self.phi_n and self.iscoprime(self.phi_n, FERMAT):
+            self.e = FERMAT
 
-        if self.e != FERMAT:
-            while not self.iscoprime(self.e, self.phi_n):
-                self.e += 2
+        else:
+            self.e = self.find_coprime(self.phi_n)
 
         # Calculate d
         self.d = pow(self.e, -1, self.phi_n)
@@ -29,6 +28,15 @@ class RSA:
     @staticmethod
     def iscoprime(a, b):
         return math.gcd(a, b) == 1
+
+    @staticmethod
+    def find_coprime(phi_n):
+        e = 3
+
+        while e < phi_n:
+            if math.gcd(e, phi_n) == 1:
+                return e
+            e += 2
 
     def get_p(self):
         return self.p
@@ -55,4 +63,4 @@ class RSA:
         return (self.n, self.d)
 
     def get_values(self):
-        return self.n, self.e, self.d
+        return self.n, self.phi_n, self.e, self.d

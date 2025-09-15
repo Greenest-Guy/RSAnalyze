@@ -1,6 +1,4 @@
 # Pollard's Rho Algorithm for Integer Factorization
-# Expected Time Complexity: O(p^1/4)
-
 import random
 import math
 
