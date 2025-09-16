@@ -6,10 +6,12 @@ import math
 
 
 class PollardsRho:
-    def __init__(self, num, textbox):
+    def __init__(self, num, textbox=None):
         self.num = num
         self.textbox = textbox
-        self.textbox.delete("0.0", "end")
+
+        if self.textbox != None:
+            self.textbox.delete("0.0", "end")
 
     def factorize(self):
         iteration = 0
@@ -36,15 +38,18 @@ class PollardsRho:
             d = math.gcd(abs(x - y), self.num)
 
             iteration += 1
-            self.textbox.insert(0.0, f"iter: {iteration}\n")
 
-        end_time = time.perf_counter()
+            if self.textbox != None:
+                self.textbox.insert(0.0, f"iter: {iteration}\n")
 
-        elapsed_time = end_time - start_time
+        if self.textbox != None:
+            end_time = time.perf_counter()
 
-        self.textbox.insert(
-            0.0, f"\nFactorization Time: {round(elapsed_time, 6)} seconds\n")
+            elapsed_time = end_time - start_time
 
-        self.textbox.insert(0.0, f"n = {d} * {self.num // d}\n")
+            self.textbox.insert(
+                0.0, f"\nFactorization Time: {round(elapsed_time, 6)} seconds\n")
+
+            self.textbox.insert(0.0, f"n = {d} * {self.num // d}\n")
 
         return d
