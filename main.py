@@ -130,9 +130,9 @@ class main(CTk):
                 self.showErrorWindow("Both p and q must be prime.")
                 return
 
-            rsa = RSA(p, q)
+            self.rsa = RSA(p, q)
 
-            n, phi_n, e, d = rsa.get_values()
+            n, phi_n, e, d = self.rsa.get_values()
 
         except ValueError:
             self.showErrorWindow(
@@ -143,17 +143,23 @@ class main(CTk):
 
         self.rsa_values.delete("0.0", "end")
         self.rsa_values.insert("end", f"n - {n}\n")
-        self.rsa_values.insert("end", f"φ(n) - {phi_n}\n")
-        self.rsa_values.insert("end", f"e - {e}\n")
-        self.rsa_values.insert("end", f"d - {d}\n\n")
+        self.rsa_values.insert("end", f"φ(n) - {phi_n}\n\n")
 
-        self.rsa_values.insert("end", f"Public Key - {rsa.get_public_key()}\n")
-        self.rsa_values.insert("end", f"Private Key - {rsa.get_private_key()}")
+        self.rsa_values.insert(
+            "end", f"Public Key (n, e) - {self.rsa.get_public_key()}\n")
+        self.rsa_values.insert(
+            "end", f"Private Key (n, d) - {self.rsa.get_private_key()}")
 
         self.rsa_values.configure(state="disabled")
 
     def factorize(self):
-        pass
+        self.Factorization.configure(state="normal")
+
+        obj = PollardsRho(self.rsa.get_n(), self.Factorization)
+
+        obj.factorize()
+
+        self.Factorization.configure(state="disabled")
 
 
 if __name__ == "__main__":

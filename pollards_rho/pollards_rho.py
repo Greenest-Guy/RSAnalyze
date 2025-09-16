@@ -1,13 +1,20 @@
 # Pollard's Rho Algorithm for Integer Factorization
+from customtkinter import *
 import random
+import time
 import math
 
 
 class PollardsRho:
-    def __init__(self, num):
+    def __init__(self, num, textbox):
         self.num = num
+        self.textbox = textbox
+        self.textbox.delete("0.0", "end")
 
     def factorize(self):
+        iteration = 0
+        start_time = time.perf_counter()
+
         if self.num <= 0:
             raise ValueError("Number must be a positive integer")
         if self.num == 1:
@@ -27,5 +34,17 @@ class PollardsRho:
             y = (pow(y, 2, self.num) + c) % self.num
 
             d = math.gcd(abs(x - y), self.num)
+
+            iteration += 1
+            self.textbox.insert(0.0, f"iter: {iteration}\n")
+
+        end_time = time.perf_counter()
+
+        elapsed_time = end_time - start_time
+
+        self.textbox.insert(
+            0.0, f"\nFactorization Time: {round(elapsed_time, 6)} seconds\n")
+
+        self.textbox.insert(0.0, f"n = {d} * {self.num // d}\n")
 
         return d
