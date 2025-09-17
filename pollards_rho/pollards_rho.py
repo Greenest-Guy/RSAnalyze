@@ -29,6 +29,9 @@ class PollardsRho:
         c = random.randint(1, self.num - 1)
         d = 1
 
+        limit = 10
+        count = 0
+
         while d == 1:
             x = (pow(x, 2, self.num) + c) % self.num
 
@@ -37,8 +40,12 @@ class PollardsRho:
 
             d = math.gcd(abs(x - y), self.num)
 
-            if d == self.num:
+            if (d == self.num and count <= limit):
+                count += 1
                 return PollardsRho(self.num, self.textbox).factorize()
+
+            elif count > limit:
+                return self.num
 
             iteration += 1
 
