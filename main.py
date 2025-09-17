@@ -1,4 +1,4 @@
-from pollards_rho.pollards_rho import PollardsRho
+from pollards_rho import PollardsRho
 from CTkToolTip import CTkToolTip
 from customtkinter import *
 from sympy import isprime
