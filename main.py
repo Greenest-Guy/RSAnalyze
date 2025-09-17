@@ -5,6 +5,8 @@ from sympy import isprime
 from PIL import Image
 from RSA import RSA
 import random
+import sys
+import os
 
 
 class main(CTk):
@@ -23,6 +25,12 @@ class main(CTk):
                                     size=(800, 400))
 
         CTkLabel(self, image=background_image, text="").place(x=0, y=0)
+
+        if sys.platform.startswith('win'):
+            self.iconbitmap(os.path.join(self.dir_path, "win.ico"))
+
+        elif sys.platform.startswith('darwin'):
+            self.iconbitmap(os.path.join(self.dir_path, "mac.icns"))
 
         # colors
         self.purple = "#7b00ff"
@@ -100,7 +108,7 @@ class main(CTk):
             CTkToolTip(error_label, message=log)
 
     def randomize_primes(self):
-        with open(f"{self.dir_path}/primes-to-100k.txt", "r") as f:
+        with open(f"{self.dir_path}{os.sep}primes-to-100k.txt", "r") as f:
             primes = f.read().splitlines()
 
         pq_distance = 16

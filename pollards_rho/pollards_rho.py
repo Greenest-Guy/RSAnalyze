@@ -37,15 +37,17 @@ class PollardsRho:
 
             d = math.gcd(abs(x - y), self.num)
 
-            iteration += 1
+            if d == self.num:
+                return PollardsRho(self.num, self.textbox).factorize()
 
-            if self.textbox != None:
-                self.textbox.insert(0.0, f"iter: {iteration}\n")
+            iteration += 1
 
         if self.textbox != None:
             end_time = time.perf_counter()
 
             elapsed_time = end_time - start_time
+
+            self.textbox.insert(0.0, f"Iterations: {iteration}\n")
 
             self.textbox.insert(
                 0.0, f"\nFactorization Time: {round(elapsed_time, 6)} seconds\n")
