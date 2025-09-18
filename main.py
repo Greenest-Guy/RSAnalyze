@@ -1,5 +1,6 @@
 from pollards_rho import PollardsRho
 from CTkToolTip import CTkToolTip
+from tkinter import PhotoImage
 from customtkinter import *
 from sympy import isprime
 from PIL import Image
@@ -30,7 +31,8 @@ class main(CTk):
             self.iconbitmap(os.path.join(self.dir_path, "win.ico"))
 
         elif sys.platform.startswith('darwin'):
-            self.iconbitmap(os.path.join(self.dir_path, "mac.icns"))
+            self.iconphoto(True, PhotoImage(
+                file=os.path.join(self.dir_path, "icon.png")))
 
         # colors
         self.purple = "#7b00ff"
