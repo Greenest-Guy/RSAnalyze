@@ -6,6 +6,11 @@
 ![preview](https://github.com/Greenest-Guy/RSAnalyze/blob/main/preview.png)
 
 ## :star2: Features
+### - Custom or Randomized prime values
+### - Windows & MacOS Support
+### - Built-in Integer Factorization (Pollard's Rho)
+### - Real-Time Output
+### - Lightweight & Open-Sourced
 
 ## :1234: RSA Value Calculations
 
@@ -36,3 +41,5 @@ $$
 
 
 ## :gear: Pollard's Rho Factorization
+['Pollard's Rho'](https://github.com/Greenest-Guy/Pollards-Rho-Python)
+
