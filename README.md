@@ -1,6 +1,9 @@
 # RSAnalyze
 &emsp;RSAnalyze is a lightweight app built for exploring RSA cryptography. Featuring a simple, user-friendly GUI that lets users calculate RSA keys from custom or randomized primes. RSAnalyze also includes built-in integer factorization using Pollard’s Rho algorithm, displaying the factors along with the computation time.
 
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Greenest-Guy/RSAnalyze/total?style=for-the-badge&color=029cff) ![GitHub Release](https://img.shields.io/github/v/release/Greenest-Guy/RSAnalyze?style=for-the-badge&color=029cff)
+[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/Greenest-Guy/RSAnalyze?style=for-the-badge)](https://www.codefactor.io/repository/github/Greenest-Guy/RSAnalyze)
+
   
 ## :mag: Preview
 ![preview](https://github.com/Greenest-Guy/RSAnalyze/blob/main/preview.png)
