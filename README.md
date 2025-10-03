@@ -44,6 +44,15 @@ $$
 
 
 ## :gear: Pollard's Rho Factorization
-&emsp;The Pollard's rho algorithm is automatically implemented within RSAnalyze to both demonstrate the security (or lack thereof) in RSA keys of varying p & q sizes. The program outputs the computation time, calculated factors, and the number of iterations taken to factorize. To learn more about how the Factorization works, please take a look at my Pollard's rho repository here [`Pollard's Rho`](https://github.com/Greenest-Guy/Pollards-Rho-Python).
+&emsp; The Pollard's rho algorithm is automatically implemented within RSAnalyze to both demonstrate the security (or lack thereof) in RSA keys of varying p & q sizes. The program outputs the computation time, calculated factors, and the number of iterations taken to factorize. To learn more about how the Factorization works, please take a look at my Pollard's rho repository here [`Pollard's Rho`](https://github.com/Greenest-Guy/Pollards-Rho-Python).
 
 ![image](https://github.com/Greenest-Guy/RSAnalyze/blob/main/PolloardsRho_snapshot.png)
+
+
+
+## :arrow_heading_down: Download Options (Windows & MacOS)
+### :octocat: GitHub
+- [Download Latest Release](https://github.com/Greenest-Guy/RSAnalyze/releases/latest)
+### :snake: Source Code
+1. Clone the repository and install all dependencies via pip
+2. Run main.py using Python version 3.7+
